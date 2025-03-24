@@ -1,28 +1,110 @@
-"use client"
+"use client";
 
-import { Card } from "@/components/ui/card"
-import { motion } from "framer-motion"
-import { Badge } from "@/components/ui/badge"
+import { Card } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { Badge } from "@/components/ui/badge";
 
 const skills = [
-  { name: "HTML/CSS", value: 90, category: "Frontend", description: "モダンなレスポンシブデザイン、アニメーション、Sass/SCSS" },
-  { name: "JavaScript", value: 90, category: "Frontend", description: "ES6+、非同期処理、DOM操作、WebAPI" },
-  { name: "TypeScript", value: 60, category: "Frontend", description: "型安全性、インターフェース、ジェネリクス" },
-  { name: "React", value: 70, category: "Frontend", description: "Hooks、状態管理、カスタムフック、パフォーマンス最適化" },
-  { name: "Next.js", value: 60, category: "Frontend", description: "SSR/SSG、APIルート、最適化" },
-  { name: "Node.js", value: 70, category: "Backend", description: "Express、REST API、非同期処理" },
-  { name: "Python", value: 50, category: "Backend", description: "データ処理、スクリプト自動化" },
-  { name: "FastAPI", value: 40, category: "Backend", description: "REST API、非同期処理" },
-  { name: "SQL", value: 50, category: "Backend", description: "クエリ最適化、データモデリング" },
-  { name: "Git", value: 70, category: "Tools", description: "バージョン管理、ブランチ戦略" },
-  { name: "Linux", value: 70, category: "Tools", description: "シェルスクリプト、サーバー管理" }
-]
+  {
+    name: "HTML / CSS",
+    value: 90,
+    category: "Frontend",
+    description:
+      "モダンなレスポンシブデザイン、アニメーション、Tailwind CSS、Panda CSSなど",
+  },
+  {
+    name: "JavaScript",
+    value: 90,
+    category: "Frontend",
+    description: "ES6+、非同期処理、DOM操作、WebAPIなど",
+  },
+  {
+    name: "TypeScript",
+    value: 60,
+    category: "Frontend",
+    description: "型安全性、インターフェース、ジェネリクスなど",
+  },
+  {
+    name: "React",
+    value: 70,
+    category: "Frontend",
+    description: "Hooks、状態管理、カスタムフック、パフォーマンス最適化など",
+  },
+  {
+    name: "Next.js",
+    value: 60,
+    category: "Frontend",
+    description: "SSR/SSG/ISR/CSR、App Router、APIルート、Server Actionsなど",
+  },
+  {
+    name: "Node.js",
+    value: 70,
+    category: "Backend",
+    description: "Express、REST API、非同期処理など",
+  },
+  {
+    name: "Python",
+    value: 50,
+    category: "Backend",
+    description: "データ処理、スクリプト自動化、スクレイピングなど",
+  },
+  {
+    name: "FastAPI",
+    value: 40,
+    category: "Backend",
+    description: "REST API、非同期処理、データベース連携、SQLAlchemyなど",
+  },
+  {
+    name: "SQL",
+    value: 50,
+    category: "Backend",
+    description:
+      "PostgreSQL、MySQL、SQLite、Oracle、SQLAlchemy、Prisma、Drizzle ORMなど",
+  },
+  {
+    name: "Git、GitHub",
+    value: 70,
+    category: "Tools",
+    description: "バージョン管理、ブランチ戦略など",
+  },
+  {
+    name: "Linux",
+    value: 70,
+    category: "Tools",
+    description: "シェルスクリプト、サーバー管理、コマンド操作など",
+  },
+  {
+    name: "VSCode（Cursor）",
+    value: 90,
+    category: "Tools",
+    description: "コード補完、デバッグ、Git操作、ターミナル統合など",
+  },
+  {
+    name: "Figma",
+    value: 60,
+    category: "Tools",
+    description: "UI/UXデザイン、プロトタイプ作成、デザインシステムなど",
+  },
+  {
+    name: "Notion",
+    value: 80,
+    category: "Tools",
+    description: "プロジェクト管理、タスク管理、ドキュメント管理など",
+  },
+  {
+    name: "Slack",
+    value: 80,
+    category: "Tools",
+    description:
+      "コミュニケーション、チームコラボレーション、チャンネル管理など",
+  },
+];
 
 const categories = {
   Frontend: "フロントエンド技術",
   Backend: "バックエンド技術",
-  Tools: "開発ツール"
-}
+  Tools: "開発ツール",
+};
 
 export default function SkillsPage() {
   return (
@@ -33,7 +115,7 @@ export default function SkillsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl font-bold text-center mb-12">Technical Skills</h1>
+          <h1 className="text-4xl font-bold text-center mb-12">Skills</h1>
           <div className="grid gap-8">
             {Object.entries(categories).map(([category, title]) => (
               <div key={category}>
@@ -42,11 +124,19 @@ export default function SkillsPage() {
                   {skills
                     .filter((skill) => skill.category === category)
                     .map((skill) => (
-                      <Card key={skill.name} className="p-6 bg-card/50 border-purple-500/20">
+                      <Card
+                        key={skill.name}
+                        className="p-6 bg-card/50 border-purple-500/20"
+                      >
                         <div className="space-y-4">
                           <div className="flex justify-between items-center">
-                            <h3 className="text-xl font-semibold">{skill.name}</h3>
-                            <Badge variant="secondary" className="bg-purple-500/10 text-purple-500">
+                            <h3 className="text-xl font-semibold">
+                              {skill.name}
+                            </h3>
+                            <Badge
+                              variant="secondary"
+                              className="bg-purple-500/10 text-purple-500"
+                            >
                               {skill.value}%
                             </Badge>
                           </div>
@@ -71,5 +161,5 @@ export default function SkillsPage() {
         </motion.div>
       </section>
     </main>
-  )
+  );
 }
