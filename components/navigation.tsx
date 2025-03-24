@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Github, Twitter, Home } from "lucide-react";
+import { Github, Twitter, Home, AlignRight } from "lucide-react";
 
 interface NavItem {
   href: string;
@@ -55,12 +55,18 @@ const socialLinks: NavItem[] = [
   },
 ];
 
+interface NavLinkProps extends NavItem {
+  className?: string;
+  onClick?: () => void;
+}
+
 const NavLink = ({
   href,
   label,
   external,
   className,
-}: NavItem & { className?: string }) => {
+  onClick,
+}: NavLinkProps) => {
   if (external) {
     return (
       <a
@@ -68,6 +74,7 @@ const NavLink = ({
         target="_blank"
         rel="noopener noreferrer"
         className={className}
+        onClick={onClick}
       >
         {label}
       </a>
@@ -75,7 +82,7 @@ const NavLink = ({
   }
 
   return (
-    <Link href={href} className={className}>
+    <Link href={href} className={className} onClick={onClick}>
       {label}
     </Link>
   );
@@ -85,28 +92,33 @@ export function Navigation() {
   const [open, setOpen] = React.useState(false);
   const pathname = usePathname();
 
+  const handleLinkClick = React.useCallback(() => {
+    setOpen(false);
+  }, []);
+
   return (
     <header className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
-      <nav className="container flex h-14 items-center">
+      <nav className="container flex h-14 items-center justify-between">
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
             <Button
               variant="ghost"
-              className="mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 lg:hidden"
+              className="px-2 text-base hover:bg-purple-500/10 focus-visible:bg-purple-500/10 transition-colors lg:hidden"
             >
-              <Menu className="h-6 w-6" />
+              <AlignRight className="h-6 w-6" />
               <span className="sr-only">Toggle Menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="pl-1 pr-0">
-            <div className="px-7">
+          <SheetContent side="left" className="w-[300px] p-0">
+            <div className="p-6 space-y-6">
               <div className="flex flex-col space-y-3">
                 {routes.map((route) => (
                   <NavLink
                     key={route.href}
                     {...route}
+                    onClick={handleLinkClick}
                     className={cn(
-                      "text-sm font-medium transition-colors hover:text-primary",
+                      "text-base font-medium transition-colors hover:text-primary p-2 rounded-md hover:bg-purple-500/10",
                       pathname === route.href && !route.external
                         ? "text-purple-500"
                         : "text-muted-foreground"
@@ -114,7 +126,7 @@ export function Navigation() {
                   />
                 ))}
               </div>
-              <div className="flex gap-4 mt-6">
+              <div className="flex gap-4 pt-4 border-t">
                 {socialLinks.map((link) => {
                   const Icon = link.icon!;
                   return (
@@ -123,7 +135,7 @@ export function Navigation() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary"
+                      className="p-2 text-muted-foreground hover:text-primary transition-colors hover:bg-purple-500/10 rounded-md"
                     >
                       <Icon className="h-5 w-5" />
                       <span className="sr-only">{link.label}</span>
@@ -134,8 +146,7 @@ export function Navigation() {
             </div>
           </SheetContent>
         </Sheet>
-        <div className="flex-1" />
-        <div className="hidden lg:flex">
+        <div className="hidden lg:flex flex-1">
           <nav className="flex items-center space-x-6 text-sm font-medium">
             {routes.map((route) => (
               <NavLink
