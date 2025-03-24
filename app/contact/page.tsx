@@ -16,7 +16,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
-import { submitContact } from "@/app/actions/contact";
 
 const formSchema = z.object({
   name: z.string().min(1, "名前を入力してください"),
@@ -24,6 +23,8 @@ const formSchema = z.object({
   phone: z.string().min(1, "電話番号を入力してください"),
   message: z.string().min(1, "お問い合わせ内容を入力してください"),
 });
+
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xdkezleo";
 
 export default function ContactPage() {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -38,18 +39,31 @@ export default function ContactPage() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      const result = await submitContact(values);
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
 
-      if (result.success) {
-        toast.success("お問い合わせを送信しました");
+      if (response.ok) {
+        toast.success("送信が完了しました", {
+          description: "お問い合わせありがとうございます。",
+          duration: 5000,
+        });
         form.reset();
       } else {
-        toast.error(
-          result.error || "エラーが発生しました。もう一度お試しください。"
-        );
+        toast.error("送信に失敗しました", {
+          description: "もう一度お試しください。",
+          duration: 5000,
+        });
       }
     } catch (error) {
-      toast.error("エラーが発生しました。もう一度お試しください。");
+      toast.error("エラーが発生しました", {
+        description: "通信エラーが発生しました。もう一度お試しください。",
+        duration: 5000,
+      });
     }
   }
 
