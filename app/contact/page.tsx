@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
+import { submitContact } from "@/app/actions/contact";
 
 const formSchema = z.object({
   name: z.string().min(1, "名前を入力してください"),
@@ -37,26 +38,16 @@ export default function ContactPage() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      // Here you would typically send the form data to your backend
-      // For now, we'll just simulate a successful submission
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const result = await submitContact(values);
 
-      // Send email using mailto link
-      const subject = encodeURIComponent(
-        "ポートフォリオサイトからのお問い合わせ"
-      );
-      const body = encodeURIComponent(`
-        名前: ${values.name}
-        メールアドレス: ${values.email}
-        電話番号: ${values.phone}
-
-        お問い合わせ内容:
-        ${values.message}
-      `);
-      window.location.href = `mailto:tonosaki914@icloud.com?subject=${subject}&body=${body}`;
-
-      toast.success("お問い合わせを送信しました");
-      form.reset();
+      if (result.success) {
+        toast.success("お問い合わせを送信しました");
+        form.reset();
+      } else {
+        toast.error(
+          result.error || "エラーが発生しました。もう一度お試しください。"
+        );
+      }
     } catch (error) {
       toast.error("エラーが発生しました。もう一度お試しください。");
     }

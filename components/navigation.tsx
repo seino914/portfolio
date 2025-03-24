@@ -98,70 +98,80 @@ export function Navigation() {
 
   return (
     <header className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
-      <nav className="container flex h-14 items-center justify-between">
-        <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger asChild>
-            <Button
-              variant="ghost"
-              className="px-2 text-base hover:bg-purple-500/10 focus-visible:bg-purple-500/10 transition-colors lg:hidden"
-            >
-              <AlignRight className="h-6 w-6" />
-              <span className="sr-only">Toggle Menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="left" className="w-[300px] p-0">
-            <div className="p-6 space-y-6">
-              <div className="flex flex-col space-y-3">
-                {routes.map((route) => (
-                  <NavLink
-                    key={route.href}
-                    {...route}
-                    onClick={handleLinkClick}
-                    className={cn(
-                      "text-base font-medium transition-colors hover:text-primary p-2 rounded-md hover:bg-purple-500/10",
-                      pathname === route.href && !route.external
-                        ? "text-purple-500"
-                        : "text-muted-foreground"
-                    )}
-                  />
-                ))}
-              </div>
-              <div className="flex gap-4 pt-4 border-t">
-                {socialLinks.map((link) => {
-                  const Icon = link.icon!;
-                  return (
-                    <a
-                      key={link.href}
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 text-muted-foreground hover:text-primary transition-colors hover:bg-purple-500/10 rounded-md"
-                    >
-                      <Icon className="h-5 w-5" />
-                      <span className="sr-only">{link.label}</span>
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-          </SheetContent>
-        </Sheet>
-        <div className="hidden lg:flex flex-1">
-          <nav className="flex items-center space-x-6 text-sm font-medium">
+      <nav className="container flex h-14 items-center">
+        <div className="flex w-full items-center justify-between">
+          {/* モバイルメニュー */}
+          <div className="lg:hidden">
+            <Sheet open={open} onOpenChange={setOpen}>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  className="px-2 text-base hover:bg-purple-500/10 focus-visible:bg-purple-500/10 transition-colors"
+                >
+                  <AlignRight className="h-6 w-6" />
+                  <span className="sr-only">Toggle Menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-[300px] p-0">
+                <div className="p-6 space-y-6">
+                  <div className="flex flex-col space-y-3">
+                    {routes.map((route) => (
+                      <NavLink
+                        key={route.href}
+                        {...route}
+                        onClick={handleLinkClick}
+                        className={cn(
+                          "text-base font-medium transition-colors hover:text-primary p-2 rounded-md hover:bg-purple-500/10",
+                          pathname === route.href && !route.external
+                            ? "text-purple-500"
+                            : "text-muted-foreground"
+                        )}
+                      />
+                    ))}
+                  </div>
+                  <div className="flex gap-4 pt-4 border-t">
+                    {socialLinks.map((link) => {
+                      const Icon = link.icon!;
+                      return (
+                        <a
+                          key={link.href}
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 text-muted-foreground hover:text-primary transition-colors hover:bg-purple-500/10 rounded-md"
+                        >
+                          <Icon className="h-5 w-5" />
+                          <span className="sr-only">{link.label}</span>
+                        </a>
+                      );
+                    })}
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+
+          {/* デスクトップナビゲーション */}
+          <div className="hidden lg:flex items-center space-x-6">
             {routes.map((route) => (
               <NavLink
                 key={route.href}
                 {...route}
                 className={cn(
-                  "transition-colors hover:text-primary",
+                  "transition-colors hover:text-primary text-sm font-medium",
                   pathname === route.href && !route.external
                     ? "text-purple-500"
                     : "text-muted-foreground"
                 )}
               />
             ))}
-          </nav>
-          <div className="flex items-center space-x-4 ml-6 border-l border-border pl-6">
+          </div>
+
+          {/* 区切り線 */}
+          <div className="hidden lg:block h-4 w-px bg-border mx-4" />
+
+          {/* ソーシャルリンク（デスクトップのみ） */}
+          <div className="hidden lg:flex items-center space-x-4">
             {socialLinks.map((link) => {
               const Icon = link.icon!;
               return (

@@ -36,7 +36,7 @@ export default function AboutPage() {
                     <Code2 className="h-8 w-8 text-purple-500" />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold">Tonosaki Seinosuke</h2>
+                    <h2 className="text-xl font-bold">Tonosaki Seinosuke</h2>
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
