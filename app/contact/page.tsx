@@ -20,7 +20,7 @@ import { motion } from "framer-motion";
 const formSchema = z.object({
   name: z.string().min(1, "名前を入力してください"),
   email: z.string().email("有効なメールアドレスを入力してください"),
-  phone: z.string().min(1, "電話番号を入力してください"),
+  phone: z.string().optional(),
   message: z.string().min(1, "お問い合わせ内容を入力してください"),
 });
 
@@ -84,7 +84,9 @@ export default function ContactPage() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>お名前</FormLabel>
+                    <FormLabel>
+                      お名前<span className="text-red-500 ml-1">*</span>
+                    </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="山田 太郎"
@@ -101,7 +103,9 @@ export default function ContactPage() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>メールアドレス</FormLabel>
+                    <FormLabel>
+                      メールアドレス<span className="text-red-500 ml-1">*</span>
+                    </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="example@example.com"
@@ -118,7 +122,10 @@ export default function ContactPage() {
                 name="phone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>電話番号</FormLabel>
+                    <FormLabel>
+                      電話番号
+                      <span className="text-gray-400 text-sm ml-2">(任意)</span>
+                    </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="090-1234-5678"
@@ -135,7 +142,10 @@ export default function ContactPage() {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>お問い合わせ内容</FormLabel>
+                    <FormLabel>
+                      お問い合わせ内容
+                      <span className="text-red-500 ml-1">*</span>
+                    </FormLabel>
                     <FormControl>
                       <Textarea
                         placeholder="お問い合わせ内容を入力してください"
