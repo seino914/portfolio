@@ -24,8 +24,6 @@ const formSchema = z.object({
   message: z.string().min(1, "お問い合わせ内容を入力してください"),
 });
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xdkezleo";
-
 export default function ContactPage() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -36,6 +34,9 @@ export default function ContactPage() {
       message: "",
     },
   });
+
+  // 環境変数を取得(formspreeのエンドポイント)
+  const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT!;
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
