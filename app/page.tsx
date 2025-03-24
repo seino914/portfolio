@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function HomePage() {
   return (
@@ -18,10 +18,15 @@ export default function HomePage() {
             <span className="text-purple-500">Tonosaki</span> Seinosuke
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-12">
-            Web Engineer & Full Stack Developer
+            Web Engineer & Web Designer
+            {/* Full Stack Developer */}
           </p>
           <div className="flex justify-center gap-4">
-            <Button asChild size="lg" className="bg-purple-500 hover:bg-purple-600">
+            <Button
+              asChild
+              size="lg"
+              className="bg-purple-500 hover:bg-purple-600"
+            >
               <Link href="/about">About Me</Link>
             </Button>
             <Button asChild size="lg" variant="outline">
@@ -31,5 +36,5 @@ export default function HomePage() {
         </motion.div>
       </div>
     </main>
-  )
+  );
 }
