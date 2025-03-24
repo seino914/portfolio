@@ -48,13 +48,22 @@ export default function ContactPage() {
       });
 
       if (response.ok) {
-        toast.success("お問い合わせを送信しました");
+        toast.success("送信が完了しました", {
+          description: "お問い合わせありがとうございます。",
+          duration: 5000,
+        });
         form.reset();
       } else {
-        toast.error("エラーが発生しました。もう一度お試しください。");
+        toast.error("送信に失敗しました", {
+          description: "もう一度お試しください。",
+          duration: 5000,
+        });
       }
     } catch (error) {
-      toast.error("エラーが発生しました。もう一度お試しください。");
+      toast.error("エラーが発生しました", {
+        description: "通信エラーが発生しました。もう一度お試しください。",
+        duration: 5000,
+      });
     }
   }
 
