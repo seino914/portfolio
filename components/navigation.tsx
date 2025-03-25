@@ -111,16 +111,16 @@ export function Navigation() {
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-[300px] p-0">
-              <div className="p-6 space-y-6">
-                <div className="flex flex-col space-y-3">
+            <SheetContent side="left" className="w-[150px] p-0">
+              <div className="h-full flex flex-col justify-center">
+                <div className="flex flex-col space-y-6">
                   {routes.map((route) => (
                     <NavLink
                       key={route.href}
                       {...route}
                       onClick={handleLinkClick}
                       className={cn(
-                        "text-base font-medium transition-colors hover:text-primary p-2 rounded-md hover:bg-purple-500/10",
+                        "text-sm transition-colors hover:text-primary text-center",
                         pathname === route.href && !route.external
                           ? "text-purple-500"
                           : "text-muted-foreground"
@@ -128,7 +128,8 @@ export function Navigation() {
                     />
                   ))}
                 </div>
-                <div className="flex gap-4 pt-4 border-t">
+
+                <div className="flex flex-col items-center space-y-4 mt-6">
                   {socialLinks.map((link) => {
                     const Icon = link.icon!;
                     return (
@@ -137,7 +138,7 @@ export function Navigation() {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 text-muted-foreground hover:text-primary transition-colors hover:bg-purple-500/10 rounded-md"
+                        className="text-muted-foreground hover:text-primary transition-colors"
                       >
                         <Icon className="h-5 w-5" />
                         <span className="sr-only">{link.label}</span>
