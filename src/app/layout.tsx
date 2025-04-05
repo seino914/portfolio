@@ -7,9 +7,40 @@ import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
+// デフォルトのメタデータ
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Web Engineer Portfolio",
+  metadataBase: new URL("https://seino.vercel.app"),
+  title: {
+    default: "Tonosaki Seinosuke",
+    template: "%s | Tonosaki Seinosuke",
+  },
+  description: "Tonosaki Seinosukeのポートフォリオサイトです。",
+  openGraph: {
+    title: "Tonosaki Seinosuke",
+    description: "Tonosaki Seinosukeのポートフォリオサイトです。",
+    url: "https://seino.vercel.app/",
+    siteName: "Tonosaki Seinosuke",
+    locale: "ja_JP",
+    type: "website",
+    // images: [
+    //   {
+    //     url: "https://seino.vercel.app/ogp.png",
+    //     width: 1200,
+    //     height: 630,
+    //     alt: "Tonosaki Seinosuke",
+    //   },
+    // ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tonosaki Seinosuke",
+    description: "Tonosaki Seinosukeのポートフォリオサイトです。",
+    // images: ["https://seino.vercel.app/ogp.png"],
+  },
 };
 
 export default function RootLayout({
