@@ -1,6 +1,6 @@
 # Tonosaki Portfolio
 
-## 現在のディレクトリ構造
+## ディレクトリ構造
 
 ```
 /
@@ -32,6 +32,15 @@
 ├── tsconfig.json       　# TypeScript設定
 └── README.md           　# プロジェクトの説明書
 ```
+
+## 技術スタック
+
+- TypeScript
+- Next.js（React）
+- Tailwind CSS
+- shadcn ui（UI コンポーネント）
+- Formspree（フォーム管理）
+- Zod（バリデーション）
 
 ## 開発
 
