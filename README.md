@@ -1,77 +1,40 @@
-# 職務経歴書（現在作成中）
+# Tonosaki Portfolio
 
-[@seino914](https://github.com/seino914)の職務経歴やスキルなどをまとめたものです。
+## 現在のディレクトリ構造
 
-<!-- [GitHub Pages](https://github.com/seino914/portfolio)でも見ることができます。 -->
+```
+/
+├── .next/              　# Next.jsのビルド出力
+├── node_modules/       　# 依存パッケージ（基本いじらない）
+├── public/             　# 静的ファイル（画像など）
+├── src/                　# ソースコード
+│   ├── app/            　# Next.js App Router
+│   │   ├── about/      　# Aboutページ
+│   │   ├── contact/    　# Contactページ
+│   │   ├── skills/     　# Skillsページ
+│   │   ├── globals.css 　# グローバルスタイル
+│   │   ├── layout.tsx  　# レイアウトコンポーネント
+│   │   ├── not-found.ts　# 404ページ
+│   │   └── page.tsx    　# メインページ
+│   ├── components/     　# 共通コンポーネント
+│   └── lib/            　# ユーティリティ関数など
+├── .env.example        　# 環境変数のテンプレート
+├── .env.local          　# ローカル環境変数
+├── .eslintrc.json      　# ESLint設定
+├── .gitignore          　# Git除外設定
+├── components.json     　# コンポーネント設定
+├── next-env.d.ts       　# Next.js型定義
+├── next.config.js      　# Next.js設定
+├── package-lock.json   　# 依存関係のロックファイル
+├── package.json        　# プロジェクト設定と依存関係
+├── postcss.config.js   　# PostCSS設定
+├── tailwind.config.ts  　# Tailwind CSS設定
+├── tsconfig.json       　# TypeScript設定
+└── README.md           　# プロジェクトの説明書
+```
 
-<br>
+## 開発
 
-- [基本情報](#基本情報)
-- [SNS](#sns)
-- [スキル](#スキル)
-
-<br>
-
-## 基本情報
-
-| 項目   | 情報                                                    |
-| ------ | ------------------------------------------------------- |
-| 氏名   | 外崎靖之輔（とのさきせいのすけ）                        |
-| 年齢   | 24 歳                                                   |
-| 所在地 | 千葉県                                                  |
-| 職業   | Web エンジニア                                          |
-| 連絡先 | →[お問い合わせリンク](https://seino.vercel.app/contact) |
-
-<br>
-
-## SNS
-
-| 項目      | URL                                |
-| --------- | ---------------------------------- |
-| Portfolio | https://seino.vercel.app/          |
-| X         | https://x.com/seino914             |
-| YOUTRUST  | https://youtrust.jp/users/seino914 |
-| Qiita     | https://qiita.com/seino_914        |
-
-<br>
-
-## スキル
-
-### フロントエンド
-
-- HTML / CSS
-- JavaScript
-- TypeScript
-- React
-- Next.js
-
-### バックエンド
-
-- TypeScript
-- Node.js
-- Python
-- FastAPI
-- SQL
-
-### データベース
-
-- PostgreSQL
-- MySQL
-- SQLite
-- Oracle
-- SQLAlchemy
-- Prisma
-- Drizzle ORM
-
-### その他ツール
-
-- Git、Github
-- Linux
-- VSCode（Cursor）
-- Figma
-- Notion
-- Jira
-- backlog
-- Slack
-
-<br>
+```
+npm run dev
+```
