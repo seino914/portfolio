@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     template: "%s | Tonosaki Seinosuke",
   },
   description: "Tonosaki Seinosukeのポートフォリオサイトです。",
+  icons: {
+    icon: "/favicon.ico",
+  },
   openGraph: {
     title: "Tonosaki Seinosuke",
     description: "Tonosaki Seinosukeのポートフォリオサイトです。",
