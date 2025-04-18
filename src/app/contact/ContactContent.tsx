@@ -20,7 +20,6 @@ import { motion } from "framer-motion";
 const formSchema = z.object({
   name: z.string().min(1, "名前を入力してください"),
   email: z.string().email("有効なメールアドレスを入力してください"),
-  phone: z.string().optional(),
   message: z.string().min(1, "お問い合わせ内容を入力してください"),
 });
 
@@ -30,7 +29,6 @@ export default function ContactPage() {
     defaultValues: {
       name: "",
       email: "",
-      phone: "",
       message: "",
     },
   });
@@ -85,11 +83,11 @@ export default function ContactPage() {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
-                      お名前<span className="text-red-500 ml-1">*</span>
+                      Name<span className="text-red-500 ml-1">*</span>
                     </FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="山田 太郎"
+                        placeholder="Your name"
                         className="border-purple-500/20"
                         {...field}
                       />
@@ -104,31 +102,11 @@ export default function ContactPage() {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
-                      メールアドレス<span className="text-red-500 ml-1">*</span>
+                      Email<span className="text-red-500 ml-1">*</span>
                     </FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="example@example.com"
-                        className="border-purple-500/20"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="phone"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>
-                      電話番号
-                      <span className="text-gray-400 text-sm ml-2">(任意)</span>
-                    </FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="090-1234-5678"
+                        placeholder="Your email"
                         className="border-purple-500/20"
                         {...field}
                       />
@@ -143,12 +121,12 @@ export default function ContactPage() {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
-                      お問い合わせ内容
+                      Message
                       <span className="text-red-500 ml-1">*</span>
                     </FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="お問い合わせ内容を入力してください"
+                        placeholder="Your message"
                         className="min-h-[150px] border-purple-500/20"
                         {...field}
                       />
@@ -161,7 +139,7 @@ export default function ContactPage() {
                 type="submit"
                 className="w-full bg-purple-500 hover:bg-purple-600"
               >
-                送信する
+                Send
               </Button>
             </form>
           </Form>
