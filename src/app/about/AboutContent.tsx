@@ -40,12 +40,12 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                  <ProfileItem icon={Calendar} label="年齢" value="24歳" />
-                  <ProfileItem icon={MapPin} label="所在地" value="千葉県" />
+                  <ProfileItem icon={Calendar} label="Age" value="24" />
+                  <ProfileItem icon={MapPin} label="Location" value="Chiba" />
                   <ProfileItem
                     icon={Briefcase}
-                    label="職業"
-                    value="Webエンジニア"
+                    label="Occupation"
+                    value="Web Developer"
                   />
                   <ProfileItem
                     icon={Mail}
@@ -70,7 +70,7 @@ export default function AboutPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2 className="text-3xl font-bold text-center mb-12">専門分野</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Expertise</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <SkillCard
               icon={Globe}
