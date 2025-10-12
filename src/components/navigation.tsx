@@ -42,8 +42,8 @@ const routes: NavItem[] = [
 
 const socialLinks: NavItem[] = [
   {
-    href: "https://x.com/tono__marvel",
-    // href: "https://x.com/seino914",
+    // href: "https://x.com/tono__marvel",
+    href: "https://x.com/seino914",
     label: "X (Twitter)",
     icon: Twitter,
     external: true,
