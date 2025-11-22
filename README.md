@@ -34,28 +34,28 @@
 ## 技術スタック
 
 ### Core
-- **Framework**: Next.js 13 (App Router)
-- **Library**: React 18
-- **Language**: TypeScript
+- **Framework**: Next.js 15.5.6 (App Router)
+- **Library**: React 19.2.0
+- **Language**: TypeScript 5.9.3
 
 ### Styling & UI
-- **CSS**: Tailwind CSS
-- **Components**: shadcn/ui
-- **Icons**: Lucide React
-- **Theme**: next-themes (Dark/Light mode)
+- **CSS**: Tailwind CSS 3.4.17
+- **Components**: shadcn/ui (Radix UI)
+- **Icons**: Lucide React 0.554.0
+- **Theme**: next-themes 0.4.6 (Dark/Light mode)
 
 ### 3D & Animation
-- **3D**: Three.js, @react-three/fiber, @react-three/drei
-- **Animation**: Framer Motion
+- **3D**: Three.js 0.181.2, @react-three/fiber 9.4.0, @react-three/drei 10.7.7
+- **Animation**: Framer Motion 12.23.24
 
 ### Form & Validation
-- **Form Management**: React Hook Form
-- **Validation**: Zod
-- **Backend Service**: Formspree
+- **Form Management**: React Hook Form 7.66.1
+- **Validation**: Zod 4.1.12
+- **Backend Service**: Formspree 3.0.0
 
 ### Tools
-- **Linter**: ESLint
-- **Formatter**: Prettier
+- **Linter**: ESLint 9.39.1
+- **Formatter**: Prettier 3.6.2
 
 ## 開発
 
