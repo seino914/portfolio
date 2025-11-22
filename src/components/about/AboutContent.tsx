@@ -14,8 +14,8 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ProfileItem } from "@/src/app/about/ProfileInfo";
-import { SkillCard } from "@/src/app/about/SkillCard";
+import { ProfileItem } from "@/src/components/about/ProfileInfo";
+import { SkillCard } from "@/src/components/about/SkillCard";
 
 export default function AboutPage() {
   return (
