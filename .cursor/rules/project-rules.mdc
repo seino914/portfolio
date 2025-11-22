@@ -1,0 +1,39 @@
+---
+description: General rules for Next.js, TypeScript, and React development
+globs: *.tsx, *.ts, *.js, *.jsx
+alwaysApply: true
+---
+# Project Rules
+
+## Next.js Best Practices
+
+- **App Router**: `src/app` ディレクトリを使用した App Router 構造に従ってください。
+- **Server Components**: デフォルトで Server Components を使用してください。`useState`, `useEffect`, イベントリスナーなどが必要な場合のみ、ファイルの先頭に `'use client'` を記述して Client Component にしてください。
+- **Image Optimization**: 画像には `<img>` タグではなく、`next/image` の `<Image />` コンポーネントを使用してください。
+- **Font Optimization**: フォントは `next/font` を使用して最適化してください。
+- **Metadata**: SEO対策には `head.tsx` ではなく、Metadata API (`export const metadata`) を使用してください。
+- **Data Fetching**: Server Components でのデータ取得を優先し、可能な限り `fetch` を使用してください。
+
+## TypeScript Best Practices
+
+- **Strict Typing**: `any` 型の使用は避け、具体的な型定義を行ってください。型が不明な場合は `unknown` を使用し、適切な型ガードを行ってください。
+- **Props & State**: コンポーネントの Props や State には、明示的な型定義 (Interface または Type Alias) を提供してください。
+- **Non-null Assertion**: 非Nullアサーション演算子 (`!`) の使用は避け、オプショナルチェーン (`?.`) や Null 合体演算子 (`??`) を活用してください。
+- **Return Types**: 複雑な関数には戻り値の型を明示してください。
+
+## React Best Practices
+
+- **Functional Components**: クラスコンポーネントではなく、関数コンポーネントを使用してください。
+- **Hooks Rules**: Hooks のルール (トップレベルでの呼び出し、ループ・条件分岐内での呼び出し禁止) を厳守してください。
+- **Custom Hooks**: 複数のコンポーネントで共通するロジックは、カスタムフックに切り出して再利用性を高めてください。
+- **Component Structure**: コンポーネントは小さく、単一責任の原則 (SRP) に従って分割してください。
+- **Performance**: 不要な再レンダリングを防ぐため、重い計算には `useMemo`、関数定義には `useCallback` を適切に使用してください（ただし、過剰な最適化は避けてください）。
+
+## General Coding Standards
+
+- **Naming Convention**:
+  - コンポーネント名: PascalCase (例: `MyComponent`)
+  - 関数・変数名: camelCase (例: `myFunction`, `myVariable`)
+  - 定数: UPPER_SNAKE_CASE (例: `MAX_COUNT`)
+- **Imports**: 絶対パス (例: `@/components/...`) を優先して使用してください。
+- **Early Return**: ネストを深くしないために、早期リターン (Guard Clause) を活用してください。

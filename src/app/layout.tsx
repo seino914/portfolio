@@ -1,12 +1,17 @@
 import "./globals.css";
 
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Navigation } from "@/src/components/navigation";
 import { ThemeProvider } from "@/src/components/theme-provider";
 import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 
 // デフォルトのメタデータ
 export const metadata: Metadata = {
@@ -25,7 +30,6 @@ export const metadata: Metadata = {
     "Three.js",
   ],
   authors: [{ name: "Tonosaki Seinosuke" }],
-  viewport: "width=device-width, initial-scale=1",
   icons: {
     icon: "/favicon.ico",
   },
