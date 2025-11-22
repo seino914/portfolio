@@ -1,8 +1,8 @@
 "use client";
 
+import { Badge } from "@/src/components/ui/badge";
 import { Card } from "@/src/components/ui/card";
 import { motion } from "framer-motion";
-import { Badge } from "@/src/components/ui/badge";
 
 const skills = [
   {
@@ -108,58 +108,64 @@ const categories = {
 
 export default function SkillsContent() {
   return (
-    <main className="container mx-auto px-4 pt-20">
-      <section className="py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h1 className="text-4xl font-bold text-center mb-12">Skills</h1>
-          <div className="grid gap-8">
-            {Object.entries(categories).map(([category, title]) => (
-              <div key={category}>
-                <h2 className="text-2xl font-semibold mb-6">{title}</h2>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                  {skills
-                    .filter((skill) => skill.category === category)
-                    .map((skill) => (
-                      <Card
-                        key={skill.name}
-                        className="p-6 bg-card/50 border-purple-500/20"
-                      >
-                        <div className="space-y-4">
-                          <div className="flex justify-between items-center">
-                            <h3 className="text-xl font-semibold">
-                              {skill.name}
-                            </h3>
-                            <Badge
-                              variant="secondary"
-                              className="bg-purple-500/10 text-purple-500"
-                            >
-                              {skill.value}%
-                            </Badge>
-                          </div>
-                          <div className="h-2 bg-muted rounded-full overflow-hidden">
-                            <motion.div
-                              initial={{ width: 0 }}
-                              animate={{ width: `${skill.value}%` }}
-                              transition={{ duration: 1, delay: 0.2 }}
-                              className="h-full bg-purple-500 rounded-full"
-                            />
-                          </div>
-                          <p className="text-sm text-muted-foreground">
-                            {skill.description}
-                          </p>
-                        </div>
-                      </Card>
-                    ))}
-                </div>
+    <section
+      id="skills"
+      className="pointer-events-none flex h-screen w-full snap-start snap-always items-center justify-end p-4 md:p-20"
+    >
+      <div className="pointer-events-auto w-full md:w-1/2">
+        <div className="[&>article]:container-none custom-scrollbar h-[80vh] overflow-y-auto [&>article]:pt-0">
+          <article className="container mx-auto px-4 pt-20">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="grid gap-8">
+                {Object.entries(categories).map(([category, title]) => (
+                  <div key={category}>
+                    <h2 className="mb-6 text-2xl font-semibold">{title}</h2>
+                    <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+                      {skills
+                        .filter((skill) => skill.category === category)
+                        .map((skill) => (
+                          <Card
+                            key={skill.name}
+                            className="border-purple-500/20 bg-card/50 p-6"
+                          >
+                            <div className="space-y-4">
+                              <div className="flex items-center justify-between">
+                                <h3 className="text-xl font-semibold">
+                                  {skill.name}
+                                </h3>
+                                <Badge
+                                  variant="secondary"
+                                  className="bg-purple-500/10 text-purple-500"
+                                >
+                                  {skill.value}%
+                                </Badge>
+                              </div>
+                              <div className="h-2 overflow-hidden rounded-full bg-muted">
+                                <motion.div
+                                  initial={{ width: 0 }}
+                                  animate={{ width: `${skill.value}%` }}
+                                  transition={{ duration: 1, delay: 0.2 }}
+                                  className="h-full rounded-full bg-purple-500"
+                                />
+                              </div>
+                              <p className="text-sm text-muted-foreground">
+                                {skill.description}
+                              </p>
+                            </div>
+                          </Card>
+                        ))}
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </motion.div>
-      </section>
-    </main>
+            </motion.div>
+          </article>
+        </div>
+      </div>
+    </section>
   );
 }

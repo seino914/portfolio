@@ -1,8 +1,9 @@
 import "./globals.css";
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "@/src/components/theme-provider";
 import { Navigation } from "@/src/components/navigation";
+import { ThemeProvider } from "@/src/components/theme-provider";
 import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -15,6 +16,16 @@ export const metadata: Metadata = {
     template: "%s | Tonosaki Seinosuke",
   },
   description: "Tonosaki Seinosukeのポートフォリオサイトです。",
+  keywords: [
+    "Tonosaki Seinosuke",
+    "Software Engineer",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Three.js",
+  ],
+  authors: [{ name: "Tonosaki Seinosuke" }],
+  viewport: "width=device-width, initial-scale=1",
   icons: {
     icon: "/favicon.ico",
   },
@@ -65,7 +76,7 @@ export default function RootLayout({
           <Toaster
             closeButton
             theme="dark"
-            className="bg-background border-purple-500/20"
+            className="border-purple-500/20 bg-background"
             style={
               {
                 "--toast-success": "rgb(168 85 247)",
