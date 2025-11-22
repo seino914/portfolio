@@ -110,11 +110,11 @@ export default function SkillsContent() {
   return (
     <section
       id="skills"
-      className="pointer-events-none flex h-screen w-full snap-start snap-always items-center justify-end p-4 md:p-20"
+      className="pointer-events-none flex min-h-screen w-full snap-start snap-always items-center justify-end py-20 md:h-screen md:p-20"
     >
       <div className="pointer-events-auto w-full md:w-1/2">
-        <div className="[&>article]:container-none custom-scrollbar h-[80vh] overflow-y-auto [&>article]:pt-0">
-          <article className="container mx-auto px-4 pt-20">
+        <div className="[&>article]:container-none h-auto overflow-y-visible [&>article]:pt-0 md:custom-scrollbar md:h-[80vh] md:overflow-y-auto">
+          <article className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
