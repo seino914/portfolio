@@ -113,8 +113,8 @@ export default function SkillsContent() {
       className="pointer-events-none flex h-screen w-full snap-start snap-always items-center justify-end p-4 md:p-20"
     >
       <div className="pointer-events-auto w-full md:w-1/2">
-        <div className="[&>main]:container-none custom-scrollbar h-[80vh] overflow-y-auto [&>main]:pt-0">
-          <main className="container mx-auto px-4 pt-20">
+        <div className="[&>article]:container-none custom-scrollbar h-[80vh] overflow-y-auto [&>article]:pt-0">
+          <article className="container mx-auto px-4 pt-20">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -163,7 +163,7 @@ export default function SkillsContent() {
                 ))}
               </div>
             </motion.div>
-          </main>
+          </article>
         </div>
       </div>
     </section>

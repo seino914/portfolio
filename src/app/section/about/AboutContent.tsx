@@ -25,8 +25,8 @@ export default function AboutContent() {
     >
       <div className="pointer-events-auto w-full md:w-1/2">
         {/* コンテンツのスタイル上書き用ラッパー */}
-        <div className="[&>main]:container-none [&>main]:pt-0">
-          <main className="container mx-auto px-4 pt-20">
+        <div className="[&>article]:container-none [&>article]:pt-0">
+          <article className="container mx-auto px-4 pt-20">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -105,7 +105,7 @@ export default function AboutContent() {
                 />
               </div>
             </motion.div>
-          </main>
+          </article>
         </div>
       </div>
     </section>

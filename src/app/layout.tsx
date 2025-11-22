@@ -16,6 +16,17 @@ export const metadata: Metadata = {
     template: "%s | Tonosaki Seinosuke",
   },
   description: "Tonosaki Seinosukeのポートフォリオサイトです。",
+  keywords: [
+    "Tonosaki Seinosuke",
+    "Software Engineer",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Three.js",
+    "Software Engineer",
+  ],
+  authors: [{ name: "Tonosaki Seinosuke" }],
+  viewport: "width=device-width, initial-scale=1",
   icons: {
     icon: "/favicon.ico",
   },
