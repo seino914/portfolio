@@ -21,12 +21,12 @@ export default function AboutContent() {
   return (
     <section
       id="about"
-      className="pointer-events-none flex h-screen w-full snap-start snap-always items-center justify-start p-4 md:p-20"
+      className="pointer-events-none flex min-h-screen w-full snap-start snap-always items-center justify-start py-20 md:h-screen md:py-0 md:p-20"
     >
       <div className="pointer-events-auto w-full md:w-1/2">
         {/* コンテンツのスタイル上書き用ラッパー */}
         <div className="[&>article]:container-none [&>article]:pt-0">
-          <article className="container mx-auto px-4 pt-20">
+          <article className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
