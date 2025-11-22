@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/src/lib/utils";
 import { Button } from "@/src/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/src/components/ui/sheet";
-import { Github, Twitter, Home, AlignRight } from "lucide-react";
+import { Github, Twitter, AlignRight } from "lucide-react";
 
 interface NavItem {
   href: string;
@@ -18,15 +18,14 @@ interface NavItem {
 const routes: NavItem[] = [
   {
     href: "/",
-    label: "Home",
-    icon: Home,
+    label: "Top",
   },
   {
-    href: "/about",
+    href: "#about",
     label: "About",
   },
   {
-    href: "/skills",
+    href: "#skills",
     label: "Skills",
   },
   {
@@ -35,7 +34,7 @@ const routes: NavItem[] = [
     external: true,
   },
   {
-    href: "/contact",
+    href: "#contact",
     label: "Contact",
   },
 ];
