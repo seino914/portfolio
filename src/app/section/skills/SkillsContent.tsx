@@ -110,7 +110,7 @@ export default function SkillsContent() {
   return (
     <section
       id="skills"
-      className="pointer-events-none flex min-h-screen w-full snap-start snap-always items-center justify-end py-20 md:h-screen md:py-0 md:p-20"
+      className="pointer-events-none flex min-h-screen w-full snap-start snap-always items-center justify-end py-20 md:h-screen md:p-20"
     >
       <div className="pointer-events-auto w-full md:w-1/2">
         <div className="[&>article]:container-none h-auto overflow-y-visible [&>article]:pt-0 md:custom-scrollbar md:h-[80vh] md:overflow-y-auto">

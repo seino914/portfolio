@@ -21,7 +21,7 @@ export default function AboutContent() {
   return (
     <section
       id="about"
-      className="pointer-events-none flex min-h-screen w-full snap-start snap-always items-center justify-start py-20 md:h-screen md:py-0 md:p-20"
+      className="pointer-events-none flex min-h-screen w-full snap-start snap-always items-center justify-start py-20 md:h-screen md:p-20"
     >
       <div className="pointer-events-auto w-full md:w-1/2">
         {/* コンテンツのスタイル上書き用ラッパー */}

@@ -71,7 +71,7 @@ export default function ContactContent() {
   return (
     <section
       id="contact"
-      className="pointer-events-none flex min-h-screen w-full snap-start snap-always items-center justify-start py-20 md:h-screen md:py-0 md:p-20"
+      className="pointer-events-none flex min-h-screen w-full snap-start snap-always items-center justify-start py-20 md:h-screen md:p-20"
     >
       <div className="pointer-events-auto w-full md:w-1/2">
         <div className="[&>article]:container-none [&>article]:pt-0">
