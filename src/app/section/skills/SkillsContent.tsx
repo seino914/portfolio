@@ -120,7 +120,6 @@ export default function SkillsContent() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h1 className="mb-12 text-center text-4xl font-bold">Skills</h1>
               <div className="grid gap-8">
                 {Object.entries(categories).map(([category, title]) => (
                   <div key={category}>

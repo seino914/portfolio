@@ -33,7 +33,6 @@ export default function AboutContent() {
               transition={{ duration: 0.5 }}
               className="mx-auto mb-16 max-w-3xl"
             >
-              <h1 className="mb-8 text-center text-4xl font-bold">About Me</h1>
               <Card className="border-purple-500/20 bg-card/50">
                 <CardContent className="p-8">
                   <div className="space-y-6">

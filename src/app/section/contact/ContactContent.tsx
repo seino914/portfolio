@@ -81,7 +81,6 @@ export default function ContactContent() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h1 className="mb-12 text-center text-3xl font-bold">Contact</h1>
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(onSubmit)}
