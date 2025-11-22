@@ -10,6 +10,7 @@ import SkillsContent from "@/src/app/section/skills/SkillsContent";
 import { Button } from "@/src/components/ui/button";
 import { motion } from "framer-motion";
 import { scrollStore } from "@/src/store/scrollStore";
+import { smoothScrollTo } from "@/src/lib/utils";
 
 // 3Dシーンを動的インポート（SSR無効化）
 const Scene = dynamic(() => import("../../components/3d/Scene"), {
@@ -18,12 +19,9 @@ const Scene = dynamic(() => import("../../components/3d/Scene"), {
 });
 
 function TopSection() {
-  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    smoothScrollTo(id);
   };
 
   return (
@@ -54,21 +52,21 @@ function TopSection() {
               size="lg"
               className="rounded-full border border-white/20 bg-white/10 px-8 py-6 text-lg text-white backdrop-blur-md transition-all duration-300 hover:bg-white/20"
             >
-              <Link href="#about" onClick={(e) => handleScrollTo(e, "about")}>About Me</Link>
+              <Link href="#about" onClick={(e) => handleClick(e, "about")}>About Me</Link>
             </Button>
             <Button
               asChild
               size="lg"
               className="rounded-full border border-white/20 bg-white/10 px-8 py-6 text-lg text-white backdrop-blur-md transition-all duration-300 hover:bg-white/20"
             >
-              <Link href="#skills" onClick={(e) => handleScrollTo(e, "skills")}>Skills</Link>
+              <Link href="#skills" onClick={(e) => handleClick(e, "skills")}>Skills</Link>
             </Button>
             <Button
               asChild
               size="lg"
               className="rounded-full border border-white/20 bg-white/10 px-8 py-6 text-lg text-white backdrop-blur-md transition-all duration-300 hover:bg-white/20"
             >
-              <Link href="#contact" onClick={(e) => handleScrollTo(e, "contact")}>Contact</Link>
+              <Link href="#contact" onClick={(e) => handleClick(e, "contact")}>Contact</Link>
             </Button>
           </div>
         </motion.div>

@@ -23,7 +23,6 @@ export const metadata: Metadata = {
     "Next.js",
     "TypeScript",
     "Three.js",
-    "Software Engineer",
   ],
   authors: [{ name: "Tonosaki Seinosuke" }],
   viewport: "width=device-width, initial-scale=1",

@@ -2,10 +2,9 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Button } from "@/src/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/src/components/ui/sheet";
-import { cn } from "@/src/lib/utils";
+import { cn, smoothScrollTo } from "@/src/lib/utils";
 import { AlignRight, Github, Twitter } from "lucide-react";
 
 interface NavItem {
@@ -41,7 +40,6 @@ const routes: NavItem[] = [
 
 const socialLinks: NavItem[] = [
   {
-    // href: "https://x.com/tono__marvel",
     href: "https://x.com/seino914",
     label: "X (Twitter)",
     icon: Twitter,
@@ -74,10 +72,8 @@ const NavLink = ({
 
     if (href.startsWith("#")) {
       e.preventDefault();
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+      const id = href.replace("#", "");
+      smoothScrollTo(id);
     }
   };
 
@@ -104,7 +100,6 @@ const NavLink = ({
 
 export function Navigation() {
   const [open, setOpen] = React.useState(false);
-  const pathname = usePathname();
 
   const handleLinkClick = React.useCallback(() => {
     setOpen(false);
@@ -134,10 +129,7 @@ export function Navigation() {
                       {...route}
                       onClick={handleLinkClick}
                       className={cn(
-                        "text-center text-sm transition-colors hover:text-primary",
-                        pathname === route.href && !route.external
-                          ? "text-purple-500"
-                          : "text-muted-foreground",
+                        "text-center text-sm text-muted-foreground transition-colors hover:text-primary",
                       )}
                     />
                   ))}
@@ -173,10 +165,7 @@ export function Navigation() {
                 key={route.href}
                 {...route}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
-                  pathname === route.href && !route.external
-                    ? "text-purple-500"
-                    : "text-muted-foreground",
+                  "text-sm font-medium text-muted-foreground transition-colors hover:text-primary",
                 )}
               />
             ))}
