@@ -60,7 +60,6 @@ function ScanningBar() {
 
 function NetworkNodes() {
   const count = 40;
-  const linesRef = useRef<any>(null); // Lineコンポーネントの型定義が複雑なためany回避推奨だが簡略化
 
   // ノードの位置と速度を生成
   const nodes = useMemo(() => {
@@ -82,38 +81,48 @@ function NetworkNodes() {
     return temp;
   }, []);
 
-  // フレームごとの更新
-  useFrame(() => {
-    nodes.forEach((node) => {
-      node.position.add(node.velocity);
-
-      // 境界チェック（画面外に出たら反対側に戻す）
-      if (Math.abs(node.position.x) > 8) node.velocity.x *= -1;
-      if (Math.abs(node.position.y) > 5) node.velocity.y *= -1;
-    });
-  });
-
-  // 近接するノード同士を結ぶ線を計算
-  // 注意: 毎フレームの計算は重いため、LineSegmentsやInstancedMeshを使うのが最適だが、
-  // ここではDreiのLineを使って簡易実装する（ノード数が少ないため可）
-
-  // 今回はシンプルに、固定の「回路図」のようなラインを描画し、
-  // その上をパケットが走る表現にする方が「工学的」かもしれない。
-  // Pleans表現は有機的になりがちなので、今回は「Circuit」アプローチをとる。
-
   return (
     <group>
       {/* ノードの描画 */}
       {nodes.map((node, i) => (
-        <mesh key={i} position={node.position}>
-          <sphereGeometry args={[0.03, 8, 8]} />
-          <meshBasicMaterial color="#6b21a8" />
-        </mesh>
+        <FloatingNode
+          key={i}
+          initialPosition={node.position}
+          initialVelocity={node.velocity}
+        />
       ))}
 
       {/* インスタンス化された回路ライン（静的 + 一部動的） */}
       <CircuitLines />
     </group>
+  );
+}
+
+function FloatingNode({
+  initialPosition,
+  initialVelocity,
+}: {
+  initialPosition: THREE.Vector3;
+  initialVelocity: THREE.Vector3;
+}) {
+  const meshRef = useRef<THREE.Mesh>(null);
+  const velocity = useRef(initialVelocity.clone());
+
+  useFrame(() => {
+    if (meshRef.current) {
+      meshRef.current.position.add(velocity.current);
+
+      // 境界チェック（画面外に出たら反対側に戻す）
+      if (Math.abs(meshRef.current.position.x) > 8) velocity.current.x *= -1;
+      if (Math.abs(meshRef.current.position.y) > 5) velocity.current.y *= -1;
+    }
+  });
+
+  return (
+    <mesh ref={meshRef} position={initialPosition}>
+      <sphereGeometry args={[0.03, 8, 8]} />
+      <meshBasicMaterial color="#6b21a8" />
+    </mesh>
   );
 }
 

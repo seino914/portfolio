@@ -47,7 +47,7 @@ export default function AboutContent() {
                       </div>
                     </div>
                     <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
-                      <ProfileItem icon={Calendar} label="年齢" value="24歳" />
+                      <ProfileItem icon={Calendar} label="年齢" value="25歳" />
                       <ProfileItem
                         icon={MapPin}
                         label="所在地"
@@ -56,7 +56,7 @@ export default function AboutContent() {
                       <ProfileItem
                         icon={Briefcase}
                         label="職業"
-                        value="Webエンジニア"
+                        value="ソフトウェアエンジニア"
                       />
                       <ProfileItem
                         icon={Mail}

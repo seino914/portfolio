@@ -17,7 +17,7 @@ interface NavItem {
 
 const routes: NavItem[] = [
   {
-    href: "/",
+    href: "#top",
     label: "Top",
   },
   {
@@ -41,8 +41,8 @@ const routes: NavItem[] = [
 
 const socialLinks: NavItem[] = [
   {
-    href: "https://x.com/tono__marvel",
-    // href: "https://x.com/seino914",
+    // href: "https://x.com/tono__marvel",
+    href: "https://x.com/seino914",
     label: "X (Twitter)",
     icon: Twitter,
     external: true,
@@ -67,6 +67,20 @@ const NavLink = ({
   className,
   onClick,
 }: NavLinkProps) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (onClick) {
+      onClick();
+    }
+
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   if (external) {
     return (
       <a
@@ -82,7 +96,7 @@ const NavLink = ({
   }
 
   return (
-    <Link href={href} className={className} onClick={onClick}>
+    <Link href={href} className={className} onClick={handleClick}>
       {label}
     </Link>
   );

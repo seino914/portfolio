@@ -18,8 +18,16 @@ const Scene = dynamic(() => import("../../components/3d/Scene"), {
 });
 
 function TopSection() {
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <section className="pointer-events-none relative z-10 flex h-screen w-full snap-start snap-always flex-col items-center justify-center">
+    <section id="top" className="pointer-events-none relative z-10 flex h-screen w-full snap-start snap-always flex-col items-center justify-center">
       <div className="container pointer-events-auto px-4 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
@@ -46,21 +54,21 @@ function TopSection() {
               size="lg"
               className="rounded-full border border-white/20 bg-white/10 px-8 py-6 text-lg text-white backdrop-blur-md transition-all duration-300 hover:bg-white/20"
             >
-              <Link href="#about">About Me</Link>
+              <Link href="#about" onClick={(e) => handleScrollTo(e, "about")}>About Me</Link>
             </Button>
             <Button
               asChild
               size="lg"
               className="rounded-full border border-white/20 bg-white/10 px-8 py-6 text-lg text-white backdrop-blur-md transition-all duration-300 hover:bg-white/20"
             >
-              <Link href="#skills">Skills</Link>
+              <Link href="#skills" onClick={(e) => handleScrollTo(e, "skills")}>Skills</Link>
             </Button>
             <Button
               asChild
               size="lg"
               className="rounded-full border border-white/20 bg-white/10 px-8 py-6 text-lg text-white backdrop-blur-md transition-all duration-300 hover:bg-white/20"
             >
-              <Link href="#contact">Contact</Link>
+              <Link href="#contact" onClick={(e) => handleScrollTo(e, "contact")}>Contact</Link>
             </Button>
           </div>
         </motion.div>
