@@ -33,7 +33,7 @@ function TopSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="relative"
         >
-          <h1 className="mb-4 text-5xl font-bold tracking-tighter text-white mix-blend-difference sm:text-6xl md:mb-6 md:text-9xl">
+          <h1 className="mb-4 text-6xl font-bold tracking-tighter text-white mix-blend-difference sm:text-6xl md:mb-6 md:text-9xl">
             <span className="block bg-gradient-to-r from-white to-white/50 bg-clip-text text-transparent">
               Tonosaki
             </span>
