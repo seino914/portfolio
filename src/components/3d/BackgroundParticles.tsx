@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useRef } from "react";
-import { Line, Plane } from "@react-three/drei";
+import { Line } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
@@ -60,69 +60,59 @@ function ScanningBar() {
 
 function NetworkNodes() {
   const count = 40;
+  const meshRef = useRef<THREE.InstancedMesh>(null);
+  const dummy = useMemo(() => new THREE.Object3D(), []);
 
   // ノードの位置と速度を生成
-  const nodes = useMemo(() => {
+  const particles = useMemo(() => {
     const temp = [];
     for (let i = 0; i < count; i++) {
       temp.push({
         position: new THREE.Vector3(
           (Math.random() - 0.5) * 15,
           (Math.random() - 0.5) * 10,
-          (Math.random() - 0.5) * 5 - 2, // 少し奥に配置
+          (Math.random() - 0.5) * 5 - 2
         ),
         velocity: new THREE.Vector3(
           (Math.random() - 0.5) * 0.02,
           (Math.random() - 0.5) * 0.02,
-          0,
+          0
         ),
       });
     }
     return temp;
   }, []);
 
+  useFrame(() => {
+    if (!meshRef.current) return;
+
+    particles.forEach((particle, i) => {
+      // 位置の更新
+      particle.position.add(particle.velocity);
+
+      // 境界チェック（画面外に出たら反対側に戻す）
+      if (Math.abs(particle.position.x) > 8) particle.velocity.x *= -1;
+      if (Math.abs(particle.position.y) > 5) particle.velocity.y *= -1;
+
+      // 行列の更新
+      dummy.position.copy(particle.position);
+      dummy.updateMatrix();
+      meshRef.current!.setMatrixAt(i, dummy.matrix);
+    });
+    meshRef.current.instanceMatrix.needsUpdate = true;
+  });
+
   return (
     <group>
-      {/* ノードの描画 */}
-      {nodes.map((node, i) => (
-        <FloatingNode
-          key={i}
-          initialPosition={node.position}
-          initialVelocity={node.velocity}
-        />
-      ))}
+      {/* ノードの描画 (InstancedMesh) */}
+      <instancedMesh ref={meshRef} args={[undefined, undefined, count]}>
+        <sphereGeometry args={[0.03, 8, 8]} />
+        <meshBasicMaterial color="#6b21a8" />
+      </instancedMesh>
 
       {/* インスタンス化された回路ライン（静的 + 一部動的） */}
       <CircuitLines />
     </group>
-  );
-}
-
-function FloatingNode({
-  initialPosition,
-  initialVelocity,
-}: {
-  initialPosition: THREE.Vector3;
-  initialVelocity: THREE.Vector3;
-}) {
-  const meshRef = useRef<THREE.Mesh>(null);
-  const velocity = useRef(initialVelocity.clone());
-
-  useFrame(() => {
-    if (meshRef.current) {
-      meshRef.current.position.add(velocity.current);
-
-      // 境界チェック（画面外に出たら反対側に戻す）
-      if (Math.abs(meshRef.current.position.x) > 8) velocity.current.x *= -1;
-      if (Math.abs(meshRef.current.position.y) > 5) velocity.current.y *= -1;
-    }
-  });
-
-  return (
-    <mesh ref={meshRef} position={initialPosition}>
-      <sphereGeometry args={[0.03, 8, 8]} />
-      <meshBasicMaterial color="#6b21a8" />
-    </mesh>
   );
 }
 
@@ -134,17 +124,17 @@ function CircuitLines() {
       const start = new THREE.Vector3(
         (Math.random() - 0.5) * 10,
         (Math.random() - 0.5) * 8,
-        -2,
+        -2
       );
       const mid = new THREE.Vector3(
         start.x + (Math.random() - 0.5) * 2,
         start.y,
-        -2,
+        -2
       ); // 直角に曲がる
       const end = new THREE.Vector3(
         mid.x,
         mid.y + (Math.random() - 0.5) * 2,
-        -2,
+        -2
       );
       const path = [start, mid, end];
       const speed = 0.5 + Math.random() * 0.5;
@@ -184,14 +174,18 @@ function DataPacket({
   offset: number;
 }) {
   const ref = useRef<THREE.Mesh>(null);
+  // ジオメトリとマテリアルを再利用するために、ここでは宣言だけして
+  // 実際には親側で共有するのがベストだが、数が少ないので個別に作成でも可
+  // ただし、useMemoでキャッシュすることは可能
+
+  const geometry = useMemo(() => new THREE.BoxGeometry(0.05, 0.05, 0.05), []);
+  const material = useMemo(() => new THREE.MeshBasicMaterial({ color: "#a855f7" }), []);
 
   useFrame((state) => {
     if (!ref.current) return;
 
     const t = (state.clock.getElapsedTime() * speed + offset) % 1;
 
-    // パス上の位置を計算 (3点、2セグメントの場合)
-    // セグメントの長さを考慮すべきだが、簡易的に等分割とみなす
     let targetPos;
     if (t < 0.5) {
       // 前半: start -> mid
@@ -207,10 +201,7 @@ function DataPacket({
   });
 
   return (
-    <mesh ref={ref}>
-      <boxGeometry args={[0.05, 0.05, 0.05]} />
-      <meshBasicMaterial color="#a855f7" />
-    </mesh>
+    <mesh ref={ref} geometry={geometry} material={material} />
   );
 }
 
