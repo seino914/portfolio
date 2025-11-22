@@ -112,7 +112,8 @@ export default function Content() {
       if (scrollTop >= sectionTop - 10) { // マージンを少し持たせる
         if (scrollTop < sectionTop + sectionHeight - 10) {
           // このセクションの中にいる
-          const progressWithinSection = (scrollTop - sectionTop) / sectionHeight;
+          // マージン(-10px)分で入った場合、計算値が負になるのを防ぐために0で下限クリップ
+          const progressWithinSection = Math.max(0, (scrollTop - sectionTop) / sectionHeight);
           currentProgress = i + progressWithinSection;
           break;
         } else {
