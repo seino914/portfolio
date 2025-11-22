@@ -127,9 +127,9 @@ function FloatingNode({
 }
 
 function CircuitLines() {
-  // ランダムなパスを生成
-  const paths = useMemo(() => {
-    const p = [];
+  // ランダムなパスとそのプロパティを生成
+  const pathData = useMemo(() => {
+    const data = [];
     for (let i = 0; i < 10; i++) {
       const start = new THREE.Vector3(
         (Math.random() - 0.5) * 10,
@@ -146,14 +146,17 @@ function CircuitLines() {
         mid.y + (Math.random() - 0.5) * 2,
         -2,
       );
-      p.push([start, mid, end]);
+      const path = [start, mid, end];
+      const speed = 0.5 + Math.random() * 0.5;
+      const offset = Math.random();
+      data.push({ path, speed, offset });
     }
-    return p;
+    return data;
   }, []);
 
   return (
     <group>
-      {paths.map((path, i) => (
+      {pathData.map(({ path, speed, offset }, i) => (
         <group key={i}>
           {/* 回路の物理的な線 */}
           <Line
@@ -164,11 +167,7 @@ function CircuitLines() {
             opacity={0.3}
           />
           {/* 線上を走るパケット */}
-          <DataPacket
-            path={path}
-            speed={0.5 + Math.random() * 0.5}
-            offset={Math.random()}
-          />
+          <DataPacket path={path} speed={speed} offset={offset} />
         </group>
       ))}
     </group>
