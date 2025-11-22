@@ -21,6 +21,8 @@ export default function HeroObject() {
   // インスタンス計算用
   const dummy = useMemo(() => new THREE.Object3D(), []);
   const color = useMemo(() => new THREE.Color(), []);
+  const baseColor = useMemo(() => new THREE.Color("#1a1a2e"), []);
+  const highlightColor = useMemo(() => new THREE.Color(), []);
 
   // データ生成
   const particles = useMemo(() => {
@@ -78,10 +80,6 @@ export default function HeroObject() {
     meshRef.current.rotation.x = Math.sin(time * 0.1) * 0.05;
 
     let idx = 0;
-
-    // 事前に色オブジェクトを作成（ループ外で）
-    const baseColor = new THREE.Color("#1a1a2e");
-    const highlightColor = new THREE.Color();
 
     particles.forEach((particle) => {
       const { x, y, z, isBlinking, blinkSpeed, blinkPhase } = particle;

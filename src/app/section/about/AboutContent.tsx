@@ -63,7 +63,7 @@ export default function AboutContent() {
                         label="Email"
                         value={
                           <Link
-                            href="/contact"
+                            href="#contact"
                             className="transition-colors hover:text-purple-500"
                           >
                             tonosaki914@icloud.com
