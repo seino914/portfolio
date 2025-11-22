@@ -5,12 +5,12 @@ import Link from "next/link";
 import { Button } from "@/src/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/src/components/ui/sheet";
 import { cn, smoothScrollTo } from "@/src/lib/utils";
-import { AlignRight, Github, Twitter } from "lucide-react";
+import { AlignRight, Github, Twitter, LucideIcon } from "lucide-react";
 
 interface NavItem {
   href: string;
   label: string;
-  icon?: React.ElementType;
+  icon?: LucideIcon;
   external?: boolean;
 }
 
