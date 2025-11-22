@@ -117,10 +117,8 @@ export default function Content() {
           break;
         } else {
           // このセクションは通過済み
-          // 最後のセクションの場合はここで確定
-          if (i === sections.length - 1) {
-            currentProgress = i + 1; // 完全に通過
-          }
+          // 次のセクションに到達していない場合でも、このセクションは完了したものとして扱う
+          currentProgress = i + 1;
         }
       } else {
         // このセクションより手前にいる
