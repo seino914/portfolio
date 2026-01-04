@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/src/lib/utils";
 import { Button } from "@/src/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/src/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/src/components/ui/sheet";
 import { Github, Twitter, Home, AlignRight } from "lucide-react";
 import { socialLinks as socialLinksData } from "@/src/lib/constants";
 
@@ -110,6 +110,7 @@ export function Navigation() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-[150px] p-0">
+              <SheetTitle className="sr-only">メニュー</SheetTitle>
               <div className="h-full flex flex-col justify-center">
                 <div className="flex flex-col space-y-6">
                   {routes.map((route) => (
