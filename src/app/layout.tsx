@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 // デフォルトのメタデータ
 export const metadata: Metadata = {
-  metadataBase: new URL("https://seino.vercel.app"),
+  metadataBase: new URL("https://tonosaki-tech.com/"),
   title: {
     default: "Tonosaki Seinosuke",
     template: "%s | Tonosaki Seinosuke",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Tonosaki Seinosuke",
     description: "Tonosaki Seinosukeのポートフォリオサイトです。",
-    url: "https://seino.vercel.app/",
+    url: "https://tonosaki-tech.com/",
     siteName: "Tonosaki Seinosuke",
     locale: "ja_JP",
     type: "website",
@@ -34,6 +34,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Tonosaki Seinosuke",
     description: "Tonosaki Seinosukeのポートフォリオサイトです。",
+  },
+  verification: {
+    google: "jY4YSH4OsSrQbWpr5K7-mX75Le6aU8QfQIlJobQYIxM",
   },
 };
 
