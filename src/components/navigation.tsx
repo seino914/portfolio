@@ -30,7 +30,7 @@ const routes: NavItem[] = [
     label: "Skills",
   },
   {
-    href: "https://qiita.com/seino_914",
+    href: "https://qiita.com/tonosaki914",
     label: "Blog",
     external: true,
   },
@@ -42,8 +42,7 @@ const routes: NavItem[] = [
 
 const socialLinks: NavItem[] = [
   {
-    href: "https://x.com/tono__marvel",
-    // href: "https://x.com/seino914",
+    href: "https://x.com/tonosaki914",
     label: "X (Twitter)",
     icon: Twitter,
     external: true,

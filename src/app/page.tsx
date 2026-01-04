@@ -18,8 +18,7 @@ export default function HomePage() {
             <span className="text-purple-500">Tonosaki</span> Seinosuke
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-12">
-            Web Engineer & Web Designer
-            {/* Full Stack Developer */}
+            Software Engineer
           </p>
           <div className="flex justify-center gap-4">
             <Button

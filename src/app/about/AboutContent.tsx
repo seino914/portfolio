@@ -40,12 +40,12 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                  <ProfileItem icon={Calendar} label="年齢" value="24歳" />
+                  <ProfileItem icon={Calendar} label="年齢" value="25歳" />
                   <ProfileItem icon={MapPin} label="所在地" value="千葉県" />
                   <ProfileItem
                     icon={Briefcase}
                     label="職業"
-                    value="Webエンジニア"
+                    value="ソフトウェアエンジニア"
                   />
                   <ProfileItem
                     icon={Mail}
@@ -75,17 +75,17 @@ export default function AboutPage() {
             <SkillCard
               icon={Globe}
               title="フロントエンド開発"
-              description="React、Next.js、TypeScriptを使用した最新のWeb開発技術でユーザー体験を向上"
+              description="React、Next.js、TypeScriptを使用した最新のWeb開発技術でユーザー体験を向上、UI/UXデザイン、アニメーション、パフォーマンス最適化"
             />
             <SkillCard
               icon={Cpu}
               title="バックエンド開発"
-              description="Node.js、TypeScript、Python、FastAPIを用いた堅牢なサーバーサイド開発"
+              description="TypeScript(Node.js、NestJS)、Python(FastAPI)を用いた堅牢なサーバーサイド開発"
             />
             <SkillCard
               icon={Rocket}
               title="高性能Web開発"
-              description="最適化された高速なWebアプリケーションの開発とパフォーマンスチューニング"
+              description="最適化された高速なWebアプリケーションの開発とパフォーマンスチューニング、データベース設計、セキュリティ対策"
             />
             <SkillCard
               icon={Lightbulb}

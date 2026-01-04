@@ -7,14 +7,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About | Tonosaki Seinosuke",
     description: "Tonosaki Seinosukeの自己紹介です。",
-    // images: [
-    //   {
-    //     url: "https://seino.vercel.app/ogp.png",
-    //     width: 1200,
-    //     height: 630,
-    //     alt: "Tonosaki Seinosuke",
-    //   },
-    // ],
   },
   robots: {
     index: true,
@@ -24,7 +16,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About | Tonosaki Seinosuke",
     description: "Tonosaki Seinosukeの自己紹介です。",
-    // images: ["https://seino.vercel.app/ogp.png"],
   },
 };
 

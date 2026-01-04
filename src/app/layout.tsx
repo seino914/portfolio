@@ -25,14 +25,6 @@ export const metadata: Metadata = {
     siteName: "Tonosaki Seinosuke",
     locale: "ja_JP",
     type: "website",
-    // images: [
-    //   {
-    //     url: "https://seino.vercel.app/ogp.png",
-    //     width: 1200,
-    //     height: 630,
-    //     alt: "Tonosaki Seinosuke",
-    //   },
-    // ],
   },
   robots: {
     index: true,
@@ -42,7 +34,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Tonosaki Seinosuke",
     description: "Tonosaki Seinosukeのポートフォリオサイトです。",
-    // images: ["https://seino.vercel.app/ogp.png"],
   },
 };
 
