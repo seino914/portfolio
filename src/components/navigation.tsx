@@ -7,6 +7,7 @@ import { cn } from "@/src/lib/utils";
 import { Button } from "@/src/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/src/components/ui/sheet";
 import { Github, Twitter, Home, AlignRight } from "lucide-react";
+import { socialLinks as socialLinksData } from "@/src/lib/constants";
 
 interface NavItem {
   href: string;
@@ -40,20 +41,17 @@ const routes: NavItem[] = [
   },
 ];
 
-const socialLinks: NavItem[] = [
-  {
-    href: "https://x.com/tonosaki914",
-    label: "X (Twitter)",
-    icon: Twitter,
+const socialLinks: NavItem[] = socialLinksData.map((link) => {
+  const iconMap: Record<string, React.ElementType> = {
+    "X (Twitter)": Twitter,
+    GitHub: Github,
+  };
+  return {
+    ...link,
+    icon: iconMap[link.label],
     external: true,
-  },
-  {
-    href: "https://github.com/seino914",
-    label: "GitHub",
-    icon: Github,
-    external: true,
-  },
-];
+  };
+});
 
 interface NavLinkProps extends NavItem {
   className?: string;
@@ -131,7 +129,8 @@ export function Navigation() {
 
                 <div className="flex flex-col items-center space-y-4 mt-6">
                   {socialLinks.map((link) => {
-                    const Icon = link.icon!;
+                    const Icon = link.icon;
+                    if (!Icon) return null;
                     return (
                       <a
                         key={link.href}
@@ -174,7 +173,8 @@ export function Navigation() {
           {/* ソーシャルリンク */}
           <div className="flex items-center space-x-4">
             {socialLinks.map((link) => {
-              const Icon = link.icon!;
+              const Icon = link.icon;
+              if (!Icon) return null;
               return (
                 <a
                   key={link.href}

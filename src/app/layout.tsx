@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/src/components/theme-provider";
 import { Navigation } from "@/src/components/navigation";
 import { Toaster } from "sonner";
+import { getSameAsLinks } from "@/src/lib/constants";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,7 +33,16 @@ export const metadata: Metadata = {
     siteName: "Tonosaki Seinosuke",
     locale: "ja_JP",
     type: "website",
+    // images: ["https://tonosaki-tech.com/og-image.jpg"], // OGP画像を追加する場合はコメントを外す
   },
+  alternates: {
+    canonical: "https://tonosaki-tech.com/",
+  },
+  authors: [
+    {
+      name: "Tonosaki Seinosuke",
+    },
+  ],
   robots: {
     index: true,
     follow: true,
@@ -52,9 +62,24 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // 構造化データ（JSON-LD）を追加
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Tonosaki Seinosuke",
+    alternateName: "外崎靖之輔",
+    jobTitle: "Software Engineer",
+    url: "https://tonosaki-tech.com",
+    sameAs: getSameAsLinks(),
+  };
+
   return (
     <html lang="ja" suppressHydrationWarning>
       <body className={inter.className}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
