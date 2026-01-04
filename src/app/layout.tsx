@@ -14,13 +14,20 @@ export const metadata: Metadata = {
     default: "Tonosaki Seinosuke",
     template: "%s | Tonosaki Seinosuke",
   },
-  description: "Tonosaki Seinosukeのポートフォリオサイトです。",
+  description: "Tonosaki Seinosukeのポートフォリオサイトです。エンジニア・開発者としてのスキル、プロジェクト、経歴を紹介しています。",
+  keywords: [
+    "Tonosaki Seinosuke",
+    "外崎靖之輔",
+    "とのさきせいのすけ",
+    "Software Engineer",  
+    "ポートフォリオ",
+  ],
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
     title: "Tonosaki Seinosuke",
-    description: "Tonosaki Seinosukeのポートフォリオサイトです。",
+    description: "Tonosaki Seinosukeのポートフォリオサイトです。エンジニア・開発者としてのスキル、プロジェクト、経歴を紹介しています。",
     url: "https://tonosaki-tech.com/",
     siteName: "Tonosaki Seinosuke",
     locale: "ja_JP",
@@ -33,7 +40,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Tonosaki Seinosuke",
-    description: "Tonosaki Seinosukeのポートフォリオサイトです。",
+    description: "Tonosaki Seinosukeのポートフォリオサイトです。エンジニア・開発者としてのスキル、プロジェクト、経歴を紹介しています。",
   },
   verification: {
     google: "jY4YSH4OsSrQbWpr5K7-mX75Le6aU8QfQIlJobQYIxM",
