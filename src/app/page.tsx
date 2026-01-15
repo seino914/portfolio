@@ -3,6 +3,8 @@
 import { Button } from "@/src/components/ui/button";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Github } from "lucide-react";
+import { socialLinks } from "@/src/lib/constants";
 
 export default function HomePage() {
   return (
@@ -28,8 +30,20 @@ export default function HomePage() {
             >
               <Link href="/about">About Me</Link>
             </Button>
-            <Button asChild size="lg" variant="outline">
+            {/* <Button asChild size="lg" variant="outline">
               <Link href="/contact">Get in Touch</Link>
+            </Button> */}
+            <Button asChild size="lg" variant="outline">
+              <Link
+                href={
+                  socialLinks.find((link) => link.label === "GitHub")?.href ||
+                  "https://github.com/seino914"
+                }
+                className="flex items-center gap-2"
+              >
+                <Github className="w-5 h-5" />
+                Github
+              </Link>
             </Button>
           </div>
         </motion.div>
