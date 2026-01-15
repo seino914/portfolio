@@ -4,6 +4,7 @@
 
 ```
 /
+├── .github/             　# Github Workflow
 ├── .next/              　 # Next.jsのビルド出力
 ├── node_modules/       　 # 依存パッケージ（基本いじらない）
 ├── public/             　 # 静的ファイル（画像など）
