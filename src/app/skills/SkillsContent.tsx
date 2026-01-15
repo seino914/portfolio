@@ -30,6 +30,13 @@ const skills = [
     description: "SSR/SSG/ISR/CSR、App Router、APIルート、Server Actionsなど",
   },
   {
+    name: "Astro",
+    years: 0.5,
+    category: "Frontend",
+    description:
+      "SSG（静的サイト生成）、高速Webサイト開発、パフォーマンス最適化など",
+  },
+  {
     name: "HTML / CSS",
     years: 3.5,
     category: "Frontend",
