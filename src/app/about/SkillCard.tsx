@@ -1,8 +1,7 @@
-import { LucideIcon } from "lucide-react";
 import { Card, CardContent } from "@/src/components/ui/card";
 
 interface SkillCardProps {
-  icon: LucideIcon;
+  icon: React.ElementType;
   title: string;
   description: string;
 }

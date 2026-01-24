@@ -1,7 +1,5 @@
-import { LucideIcon } from "lucide-react";
-
 interface ProfileItemProps {
-  icon: LucideIcon;
+  icon: React.ElementType;
   label: string;
   value: React.ReactNode;
 }
