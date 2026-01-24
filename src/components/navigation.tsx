@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/src/lib/utils";
 import { Button } from "@/src/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/src/components/ui/sheet";
-import { Github, Twitter, Home, AlignRight } from "lucide-react";
+import { FaGithub, FaXTwitter, FaBars } from "react-icons/fa6";
 import { socialLinks as socialLinksData } from "@/src/lib/constants";
 
 interface NavItem {
@@ -20,7 +20,6 @@ const routes: NavItem[] = [
   {
     href: "/",
     label: "Home",
-    icon: Home,
   },
   {
     href: "/about",
@@ -32,7 +31,7 @@ const routes: NavItem[] = [
   },
   {
     href: "https://qiita.com/tonosaki914",
-    label: "Blog",
+    label: "Qiita",
     external: true,
   },
   {
@@ -43,8 +42,8 @@ const routes: NavItem[] = [
 
 const socialLinks: NavItem[] = socialLinksData.map((link) => {
   const iconMap: Record<string, React.ElementType> = {
-    "X (Twitter)": Twitter,
-    GitHub: Github,
+    "X (Twitter)": FaXTwitter,
+    GitHub: FaGithub,
   };
   return {
     ...link,
@@ -105,7 +104,7 @@ export function Navigation() {
                 variant="ghost"
                 className="px-2 text-base hover:bg-purple-500/10 focus-visible:bg-purple-500/10 transition-colors"
               >
-                <AlignRight className="h-6 w-6" />
+                <FaBars className="h-6 w-6" />
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>

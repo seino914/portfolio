@@ -2,16 +2,16 @@
 
 import { Card, CardContent } from "@/src/components/ui/card";
 import {
-  Code2,
-  Cpu,
-  Globe,
-  Rocket,
-  Lightbulb,
-  Mail,
-  MapPin,
-  Briefcase,
-  Calendar,
-} from "lucide-react";
+  FaCode,
+  FaMicrochip,
+  FaGlobe,
+  FaRocket,
+  FaLightbulb,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaBriefcase,
+  FaCalendar,
+} from "react-icons/fa";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ProfileItem } from "@/src/app/about/ProfileInfo";
@@ -33,22 +33,22 @@ export default function AboutPage() {
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center">
-                    <Code2 className="h-8 w-8 text-purple-500" />
+                    <FaCode className="h-8 w-8 text-purple-500" />
                   </div>
                   <div>
                     <h2 className="text-xl font-bold">Tonosaki Seinosuke</h2>
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                  <ProfileItem icon={Calendar} label="年齢" value="25歳" />
-                  <ProfileItem icon={MapPin} label="所在地" value="千葉県" />
+                  <ProfileItem icon={FaCalendar} label="年齢" value="25歳" />
+                  <ProfileItem icon={FaMapMarkerAlt} label="所在地" value="千葉県" />
                   <ProfileItem
-                    icon={Briefcase}
+                    icon={FaBriefcase}
                     label="職業"
                     value="ソフトウェアエンジニア"
                   />
                   <ProfileItem
-                    icon={Mail}
+                    icon={FaEnvelope}
                     label="Email"
                     value={
                       <Link
@@ -73,22 +73,22 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold text-center mb-12">専門分野</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <SkillCard
-              icon={Globe}
+              icon={FaGlobe}
               title="フロントエンド開発"
               description="React、Next.js、TypeScriptを使用した最新のWeb開発技術でユーザー体験を向上、UI/UXデザイン、アニメーション、パフォーマンス最適化"
             />
             <SkillCard
-              icon={Cpu}
+              icon={FaMicrochip}
               title="バックエンド開発"
               description="TypeScript(Node.js、NestJS)、Python(FastAPI)を用いた堅牢なサーバーサイド開発"
             />
             <SkillCard
-              icon={Rocket}
+              icon={FaRocket}
               title="高性能Web開発"
               description="最適化された高速なWebアプリケーションの開発とパフォーマンスチューニング、データベース設計、セキュリティ対策"
             />
             <SkillCard
-              icon={Lightbulb}
+              icon={FaLightbulb}
               title="ソリューション設計"
               description="要件定義から設計、実装まで、最適なデザインパターンを用いた開発支援"
             />
