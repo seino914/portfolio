@@ -1,0 +1,36 @@
+# Dependabot の設定。
+# 脆弱性の修正 PR（security updates）はリポジトリ設定で有効にしてあり、ここでは版の更新 PR を設定する。
+# PR が増えすぎないよう、週 1 回・まとめて出す。
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      timezone: Asia/Tokyo
+    # 公開直後の版（壊れた版・乗っ取られた版の可能性）を避けるため、公開から数日待つ。
+    # security updates には適用されない
+    cooldown:
+      default-days: 3
+    groups:
+      # マイナー・パッチ更新は 1 本の PR にまとめる
+      minor-and-patch:
+        applies-to: version-updates
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
+      # メジャー更新は移行作業が要るので、通常の更新とは別の 1 本にまとめる
+      major:
+        applies-to: version-updates
+        patterns:
+          - "*"
+        update-types:
+          - major
+      # 脆弱性の修正 PR も 1 本にまとめる
+      security:
+        applies-to: security-updates
+        patterns:
+          - "*"
