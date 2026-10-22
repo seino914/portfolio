@@ -8,7 +8,7 @@ import { socialLinks } from "@/src/lib/constants";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-purple-500/10">
+    <main className="min-h-screen flex items-center justify-center bg-linear-to-br/srgb from-background to-purple-500/10">
       <div className="container px-4 py-32 md:py-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

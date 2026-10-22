@@ -60,7 +60,7 @@ export default function ContactPage() {
           duration: 5000,
         });
       }
-    } catch (error) {
+    } catch {
       toast.error("エラーが発生しました", {
         description: "通信エラーが発生しました。もう一度お試しください。",
         duration: 5000,
