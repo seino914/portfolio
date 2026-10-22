@@ -1,100 +1,137 @@
 "use client";
 
-import { Card } from "@/src/components/ui/card";
 import { motion } from "framer-motion";
 import { Badge } from "@/src/components/ui/badge";
+import { Card } from "@/src/components/ui/card";
 
 const skills = [
   {
     name: "TypeScript",
-    years: 2.5,
+    years: 3,
     category: "Frontend",
-    description: "型安全性、インターフェース、ジェネリクスなど",
+    description: "型設計、ジェネリクス、型によるAI生成コードの検証など",
   },
   {
     name: "JavaScript",
-    years: 3.5,
+    years: 4,
     category: "Frontend",
-    description: "ES6+、非同期処理、DOM操作、WebAPIなど",
+    description: "ES6+、非同期処理、DOM操作、Web APIなど",
   },
   {
     name: "React",
-    years: 2.5,
+    years: 3,
     category: "Frontend",
-    description: "Hooks、状態管理、カスタムフック、パフォーマンス最適化など",
+    description:
+      "コンポーネント設計、Hooks、状態管理、パフォーマンス最適化など",
   },
   {
     name: "Next.js",
-    years: 2,
+    years: 3,
     category: "Frontend",
-    description: "SSR/SSG/ISR/CSR、App Router、APIルート、Server Actionsなど",
+    description:
+      "App Router、Server Actions、要件に応じたレンダリング方式（SSR/SSG/ISR/CSR）の選定など",
   },
   {
     name: "Astro",
-    years: 0.5,
+    years: 1.5,
     category: "Frontend",
     description:
-      "SSG（静的サイト生成）、高速Webサイト開発、パフォーマンス最適化など",
+      "SSG（静的サイト生成）、高速なWebサイト開発、パフォーマンス最適化など",
   },
   {
     name: "HTML / CSS",
-    years: 3.5,
+    years: 4,
     category: "Frontend",
     description:
-      "モダンなレスポンシブデザイン、アニメーション、Tailwind CSS、Panda CSSなど",
+      "レスポンシブデザイン、アニメーション、Tailwind CSS、Panda CSSなど",
+  },
+  {
+    name: "Hono",
+    years: 0.5,
+    category: "Backend",
+    description: "軽量なWeb API、ミドルウェア、バリデーションなど",
   },
   {
     name: "NestJS",
-    years: 0.5,
+    years: 1,
     category: "Backend",
-    description: "DI、ORM、バリデーション、テストなど",
+    description: "モジュール設計、DI、ORM、バリデーション、テストなど",
   },
   {
     name: "Node.js",
-    years: 1.5,
+    years: 2.5,
     category: "Backend",
     description: "Express、REST API、非同期処理など",
   },
   {
     name: "Python",
-    years: 1.5,
+    years: 2,
     category: "Backend",
-    description: "データ処理、スクリプト自動化、スクレイピングなど",
+    description: "データ処理、自動化スクリプト、スクレイピングなど",
   },
   {
     name: "FastAPI",
-    years: 0.5,
+    years: 1,
     category: "Backend",
     description: "REST API、非同期処理、データベース連携、SQLAlchemyなど",
   },
   {
     name: "SQL",
-    years: 1.5,
+    years: 2,
     category: "Backend",
     description:
       "PostgreSQL、MySQL、SQLite、Oracle、SQLAlchemy、Prisma、Drizzle ORMなど",
   },
   {
-    name: "Git、GitHub",
-    years: 3,
-    category: "Tools",
-    description: "CI/CD、バージョン管理、ブランチ戦略など",
-  },
-  {
-    name: "VSCode（Cursor）",
-    years: 3.5,
-    category: "Tools",
-    description: "コード補完、デバッグ、Git操作、ターミナル統合など",
-  },
-  {
     name: "Claude Code",
+    years: 1,
+    category: "AI",
+    description:
+      "タスクの分解とサブエージェントへの委譲、CLAUDE.md・フック・スキルによるハーネス設計、AIによるコードレビューなど",
+  },
+  {
+    name: "Codex",
+    years: 1,
+    category: "AI",
+    description: "AIエージェントによる実装・コードレビュー、ハーネス設計など",
+  },
+  {
+    name: "OpenCode",
     years: 0.5,
+    category: "AI",
+    description: "複数のLLMを使い分けたAI駆動開発、ハーネス設計など",
+  },
+  {
+    name: "Cursor",
+    years: 1,
+    category: "AI",
+    description:
+      "エディタに統合されたAI補完・エージェント、クラウドエージェントによる並行開発など",
+  },
+  {
+    name: "Devin",
+    years: 1,
+    category: "AI",
+    description:
+      "自律型AIエージェントへのタスク委譲、クラウド上での並行開発など",
+  },
+  {
+    name: "Git、GitHub",
+    years: 4,
     category: "Tools",
-    description: "AI駆動開発、コンテキスト設計、MCPサーバーなど",
+    description:
+      "PRベースの開発フロー、GitHub Actions、ブランチ保護、Dependabotによる依存管理など",
+  },
+  {
+    name: "VSCode",
+    years: 4,
+    category: "Tools",
+    description:
+      "AIエージェントと組み合わせた開発環境、デバッグ、ターミナル統合など",
   },
   {
     name: "Figma",
-    years: 1,
+    years: 1.5,
     category: "Tools",
     description: "UI/UXデザイン、プロトタイプ作成、デザインシステムなど",
   },
@@ -103,6 +140,7 @@ const skills = [
 const categories = {
   Frontend: "フロントエンド技術",
   Backend: "バックエンド技術",
+  AI: "AIエージェント",
   Tools: "開発ツール",
 };
 

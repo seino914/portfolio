@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import SkillsContent from "./SkillsContent";
 
 export const metadata: Metadata = {

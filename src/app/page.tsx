@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@/src/components/ui/button";
-import Link from "next/link";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { FaGithub } from "react-icons/fa6";
+import { Button } from "@/src/components/ui/button";
 import { socialLinks } from "@/src/lib/constants";
 
 export default function HomePage() {
@@ -33,7 +33,12 @@ export default function HomePage() {
             {/* <Button asChild size="lg" variant="outline">
               <Link href="/contact">Get in Touch</Link>
             </Button> */}
-            <Button asChild size="lg" variant="outline" className="min-w-[140px]">
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="min-w-[140px]"
+            >
               <Link
                 href={
                   socialLinks.find((link) => link.label === "GitHub")?.href ||
