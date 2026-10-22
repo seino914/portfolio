@@ -94,7 +94,7 @@ export function Navigation() {
   }, []);
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
+    <header className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-sm supports-backdrop-filter:bg-background/60 border-b">
       <nav className="container flex h-14 items-center justify-between">
         {/* モバイルメニュー */}
         <div className="flex lg:hidden">
