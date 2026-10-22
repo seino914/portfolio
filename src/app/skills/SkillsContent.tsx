@@ -1,8 +1,8 @@
 "use client";
 
-import { Card } from "@/src/components/ui/card";
 import { motion } from "framer-motion";
 import { Badge } from "@/src/components/ui/badge";
+import { Card } from "@/src/components/ui/card";
 
 const skills = [
   {

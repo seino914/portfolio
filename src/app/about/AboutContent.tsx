@@ -1,21 +1,21 @@
 "use client";
 
-import { Card, CardContent } from "@/src/components/ui/card";
-import {
-  FaCode,
-  FaMicrochip,
-  FaGlobe,
-  FaRocket,
-  FaLightbulb,
-  FaEnvelope,
-  FaMapMarkerAlt,
-  FaBriefcase,
-  FaCalendar,
-} from "react-icons/fa";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import {
+  FaBriefcase,
+  FaCalendar,
+  FaCode,
+  FaEnvelope,
+  FaGlobe,
+  FaLightbulb,
+  FaMapMarkerAlt,
+  FaMicrochip,
+  FaRocket,
+} from "react-icons/fa";
 import { ProfileItem } from "@/src/app/about/ProfileInfo";
 import { SkillCard } from "@/src/app/about/SkillCard";
+import { Card, CardContent } from "@/src/components/ui/card";
 
 export default function AboutPage() {
   return (
@@ -41,7 +41,11 @@ export default function AboutPage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
                   <ProfileItem icon={FaCalendar} label="年齢" value="25歳" />
-                  <ProfileItem icon={FaMapMarkerAlt} label="所在地" value="千葉県" />
+                  <ProfileItem
+                    icon={FaMapMarkerAlt}
+                    label="所在地"
+                    value="千葉県"
+                  />
                   <ProfileItem
                     icon={FaBriefcase}
                     label="職業"

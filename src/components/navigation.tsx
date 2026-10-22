@@ -1,13 +1,18 @@
 "use client";
 
-import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { cn } from "@/src/lib/utils";
+import * as React from "react";
+import { FaBars, FaGithub, FaXTwitter } from "react-icons/fa6";
 import { Button } from "@/src/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/src/components/ui/sheet";
-import { FaGithub, FaXTwitter, FaBars } from "react-icons/fa6";
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/src/components/ui/sheet";
 import { socialLinks as socialLinksData } from "@/src/lib/constants";
+import { cn } from "@/src/lib/utils";
 
 interface NavItem {
   href: string;
@@ -121,7 +126,7 @@ export function Navigation() {
                         "text-sm transition-colors hover:text-primary text-center",
                         pathname === route.href && !route.external
                           ? "text-purple-500"
-                          : "text-muted-foreground"
+                          : "text-muted-foreground",
                       )}
                     />
                   ))}
@@ -161,7 +166,7 @@ export function Navigation() {
                   "transition-colors hover:text-primary text-sm font-medium",
                   pathname === route.href && !route.external
                     ? "text-purple-500"
-                    : "text-muted-foreground"
+                    : "text-muted-foreground",
                 )}
               />
             ))}

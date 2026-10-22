@@ -24,8 +24,8 @@
 ├── .env.example        　 # 環境変数のテンプレート
 ├── .env.local          　 # ローカル環境変数
 ├── .gitignore          　 # Git除外設定
+├── biome.json          　 # Biome設定（lint・整形）
 ├── components.json     　 # コンポーネント設定
-├── eslint.config.mjs  　 # ESLint設定（flat config）
 ├── next-env.d.ts       　 # Next.js型定義
 ├── next.config.js      　 # Next.js設定
 ├── package-lock.json   　 # 依存関係のロックファイル
@@ -48,4 +48,16 @@
 
 ```
 npm run dev
+```
+
+lint（Biome）:
+
+```
+npm run lint
+```
+
+整形（Biome。安全な修正も自動で適用する）:
+
+```
+npm run format
 ```

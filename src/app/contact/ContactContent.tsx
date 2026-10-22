@@ -1,7 +1,9 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import * as z from "zod";
 import { Button } from "@/src/components/ui/button";
 import {
@@ -14,8 +16,6 @@ import {
 } from "@/src/components/ui/form";
 import { Input } from "@/src/components/ui/input";
 import { Textarea } from "@/src/components/ui/textarea";
-import { toast } from "sonner";
-import { motion } from "framer-motion";
 
 const formSchema = z.object({
   name: z.string().min(1, "名前を入力してください"),
@@ -36,10 +36,14 @@ export default function ContactPage() {
   });
 
   // 環境変数を取得(formspreeのエンドポイント)
-  const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT!;
+  const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
+      // 未設定のまま送信しない（下の catch でエラー表示になる）
+      if (!FORMSPREE_ENDPOINT) {
+        throw new Error("NEXT_PUBLIC_FORMSPREE_ENDPOINT が未設定です");
+      }
       const response = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
         headers: {

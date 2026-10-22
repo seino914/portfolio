@@ -1,9 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "@/src/components/theme-provider";
-import { Navigation } from "@/src/components/navigation";
 import { Toaster } from "sonner";
+import { Navigation } from "@/src/components/navigation";
+import { ThemeProvider } from "@/src/components/theme-provider";
 import { getSameAsLinks } from "@/src/lib/constants";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -15,12 +15,13 @@ export const metadata: Metadata = {
     default: "Tonosaki Seinosuke",
     template: "%s | Tonosaki Seinosuke",
   },
-  description: "Tonosaki Seinosukeのポートフォリオサイトです。エンジニア・開発者としてのスキル、プロジェクト、経歴を紹介しています。",
+  description:
+    "Tonosaki Seinosukeのポートフォリオサイトです。エンジニア・開発者としてのスキル、プロジェクト、経歴を紹介しています。",
   keywords: [
     "Tonosaki Seinosuke",
     "外崎靖之輔",
     "とのさきせいのすけ",
-    "Software Engineer",  
+    "Software Engineer",
     "ポートフォリオ",
   ],
   icons: {
@@ -28,7 +29,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Tonosaki Seinosuke",
-    description: "Tonosaki Seinosukeのポートフォリオサイトです。エンジニア・開発者としてのスキル、プロジェクト、経歴を紹介しています。",
+    description:
+      "Tonosaki Seinosukeのポートフォリオサイトです。エンジニア・開発者としてのスキル、プロジェクト、経歴を紹介しています。",
     url: "https://tonosaki-tech.com/",
     siteName: "Tonosaki Seinosuke",
     locale: "ja_JP",
@@ -50,7 +52,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Tonosaki Seinosuke",
-    description: "Tonosaki Seinosukeのポートフォリオサイトです。エンジニア・開発者としてのスキル、プロジェクト、経歴を紹介しています。",
+    description:
+      "Tonosaki Seinosukeのポートフォリオサイトです。エンジニア・開発者としてのスキル、プロジェクト、経歴を紹介しています。",
   },
   verification: {
     google: "jY4YSH4OsSrQbWpr5K7-mX75Le6aU8QfQIlJobQYIxM",
@@ -76,10 +79,7 @@ export default function RootLayout({
   return (
     <html lang="ja" suppressHydrationWarning>
       <body className={inter.className}>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

@@ -18,4 +18,3 @@ export const socialLinks = [
 export const getSameAsLinks = () => {
   return socialLinks.map((link) => link.href);
 };
-
