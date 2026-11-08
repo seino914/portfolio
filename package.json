@@ -10,7 +10,7 @@
     "format": "biome check --write ."
   },
   "dependencies": {
-    "@hookform/resolvers": "^6.0.2",
+    "@hookform/resolvers": "^7.0.3",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-label": "^2.1.8",
     "@radix-ui/react-slot": "^1.2.4",
